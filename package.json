@@ -1,6 +1,6 @@
 {
     "name": "yui3",
-    "version": "0.5.24",
+    "version": "0.5.25",
     "description": "YUI 3 Library on NodeJS",
     "author": "Dav Glass <davglass@gmail.com>",
     "bugs": { "web" : "http://github.com/davglass/nodejs-yui3/issues" },
@@ -10,7 +10,8 @@
         "Robert Tsai <rob+github@tsaiberspace.net>",
         "Bart Teeuwisse <bart.teeuwisse@thecodemill.biz> (http://thecodemill.biz/)",
         "Phil Dokas <pdokas@organic.com>",
-        "Standa Opichal <opichals@gmail.com>"
+        "Standa Opichal <opichals@gmail.com>",
+        "Reid Burke <me@reidburke.com>"
     ],
     "engines": {
         "node" : ">=0.2.0"
