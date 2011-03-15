@@ -1,7 +1,7 @@
 {
-    "name": "yui3",
-    "version": "0.5.25",
-    "description": "YUI 3 Library on NodeJS",
+    "name": "reid-yui3",
+    "version": "0.5.25a",
+    "description": "YUI 3 for Node.js -- use 'yui3' unless you know what you're doing",
     "author": "Dav Glass <davglass@gmail.com>",
     "bugs": { "web" : "http://github.com/davglass/nodejs-yui3/issues" },
     "os": ["darwin", "linux"],
