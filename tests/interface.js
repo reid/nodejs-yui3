@@ -188,8 +188,8 @@ suite.add( new YUITest.TestCase({
             m: 'yui',
             v: '3.3.0'
         }, function(err, data) {
-            Assert.areEqual(data.js.length, 1);
-            Assert.areEqual(data.css.length, 0);
+            Assert.areEqual(1, data.js.length);
+            Assert.areEqual(0, data.css.length);
             Assert.areEqual([].concat(data.js, data.css).length, Object.keys(data.d).length);
             next();
         });
