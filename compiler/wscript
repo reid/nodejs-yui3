@@ -1,0 +1,48 @@
+#!/usr/bin/env python
+
+import re
+import Options
+import sys, os, shutil, glob
+import Utils
+from Utils import cmd_output
+from os.path import join, dirname, abspath, normpath
+from logging import fatal
+
+
+srcdir = "."
+blddir = "build"
+VERSION = "0.1.0"
+
+sys.path.append('./tools');
+import js2c
+
+def set_options(opt):
+  opt.tool_options("compiler_cxx")
+
+def configure(conf):
+  conf.check_tool("compiler_cxx")
+  conf.check_tool("node_addon")
+
+def build(bld):
+  print "Preparing to Build YUI3"
+  obj = bld.new_task_gen("cxx", "shlib", "node_addon")
+  obj.target = "yui3-compiled"
+  obj.source = "yui.cc"
+
+  def javascript_in_c(task):
+    print "Compiling YUI Source Files into C files, this may take a little bit \m/"
+    env = task.env
+    source = map(lambda x: x.srcpath(env), task.inputs)
+    targets = map(lambda x: x.srcpath(env), task.outputs)
+    #source.append(macros_loc_default)
+    js2c.JS2C(source, targets)
+
+  native_cc = bld.new_task_gen(
+    source=bld.path.ant_glob('src/lib/*.js'),
+    target="yui_natives.h",
+    before="cxx",
+    install_path=None
+  )
+
+  native_cc.rule = javascript_in_c
+
