@@ -1,4 +1,15 @@
-#Testing the latest YUI release with Node
+##Packaging
+
+To install from this source tree:
+
+    make dev
+
+To make all packages
+
+    make all
+    make install
+
+##Testing the latest YUI release with Node
 
 I've tried to make it simple to test the latest YUI source code against my nodejs package.
 First you need to install yuitest:
