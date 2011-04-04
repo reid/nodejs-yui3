@@ -1,1 +1,4 @@
 build/*
+compiler/.lock-wscript
+compiler/build/*
+compiler/src/*
