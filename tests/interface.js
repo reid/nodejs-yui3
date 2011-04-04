@@ -310,6 +310,30 @@ suite.add( new YUITest.TestCase({
             next();
         });
     }),
+    "RLS Object": async(function(data, next) {
+        var config = {
+            m: 'dd,widget,autocomplete,gallery-yql,yui2-datatable',
+            env: 'yui,node,attribute',
+            v: '3.3.0',
+            parse: true,
+            gv: '2010.09.22'
+        }
+        var c = {
+            core: config.core,
+            gallery: config.gv,
+            yui2: false
+        };
+        var YUI = yui3.configure(c).YUI;
+
+        new yui3.RLS(YUI, config).compile(function(err, data) {
+            Assert.areEqual(data.js.length, 27);
+            Assert.areEqual(data.css.length, 4);
+            Assert.isTrue(data.js[0].indexOf('3.3.0') > 0);
+            Assert.areEqual([].concat(data.js, data.css).length, Object.keys(data.d).length);
+            next();
+        });
+        
+    }),
     "rls version 33": async(function(data, next) {
         yui3.rls({
             m: 'dd,widget,autocomplete,gallery-yql,yui2-datatable',
