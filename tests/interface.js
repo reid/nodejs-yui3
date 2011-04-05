@@ -194,6 +194,16 @@ suite.add( new YUITest.TestCase({
             next();
         });
     }),
+    "rls invalid module": async(function(data, next) {
+        yui3.rls({
+            m: ['bogus-yui-module']
+        }, function(err, data) {
+            Assert.areEqual(0, data.js.length);
+            Assert.areEqual(0, data.css.length);
+            Assert.areEqual([].concat(data.js, data.css).length, Object.keys(data.d).length);
+            next();
+        });
+    }),
     "rls yui customloader no serve loader": async(function(data, next) {
         yui3.rls({
             m: 'yui,dd',
