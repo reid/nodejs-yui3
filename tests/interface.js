@@ -11,19 +11,19 @@ var async = function(fn) {
     return function(data) {
         var loaded = false;
         var w = function() {
-            if (count === 100) {
-                throw new Error('Async Timer reached 100 iterations..');
+            if (count === 1000) {
+                throw new Error('Async Timer reached 1000 iterations..');
             }
             count++;
             if (!loaded) {
-                this.wait(w, 10);
+                this.wait(w, 1);
             }
         };
         var next = function() {
             loaded = true;
         };
         fn.call(this, data, next);
-        this.wait(w, 10);
+        this.wait(w, 1);
     };
 };
 
