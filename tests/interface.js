@@ -303,7 +303,6 @@ suite.add( new YUITest.TestCase({
         });
     }),
     "rls filter debug": async(function(data, next) {
-        var loaded = false;
         yui3.rls({
             m: 'dd,widget,autocomplete,gallery-yql,yui2-datatable',
             env: 'yui,node,attribute',
@@ -329,7 +328,7 @@ suite.add( new YUITest.TestCase({
             gv: '2010.09.22'
         }
         var c = {
-            core: config.core,
+            core: config.v,
             gallery: config.gv,
             yui2: false
         };
