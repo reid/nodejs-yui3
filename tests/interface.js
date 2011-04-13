@@ -1,4 +1,4 @@
-var yui3 = require("../lib/node-yui3");
+var yui3 = require("yui3");
 var YUITest = require("yuitest").YUITest;
 
 var Assert = YUITest.Assert,
