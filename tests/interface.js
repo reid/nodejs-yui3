@@ -16,14 +16,14 @@ var async = function(fn) {
             }
             count++;
             if (!loaded) {
-                this.wait(w, 1);
+                this.wait(w, 10);
             }
         };
         var next = function() {
             loaded = true;
         };
         fn.call(this, data, next);
-        this.wait(w, 1);
+        this.wait(w, 10);
     };
 };
 
