@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-var sys = require('sys');
+var util = require('util');
 
 var YUI = require("yui3").YUI;
 
@@ -24,7 +24,7 @@ YUI({
             },
             success: function(id, o) {
                 //Y.log(o.responseText);
-                Y.log(sys.inspect(Y.JSON.parse(o.responseText).userinfo), 'info', 'io1');
+                Y.log(util.inspect(Y.JSON.parse(o.responseText).userinfo), 'info', 'io1');
             }
         }
     });
@@ -41,7 +41,7 @@ YUI({
                 Y.log('Start IO #2', 'info', 'io2');
             },
             success: function(id, o) {
-                Y.log(sys.inspect(Y.JSON.parse(o.responseText)), 'info', 'io2');
+                Y.log(util.inspect(Y.JSON.parse(o.responseText)), 'info', 'io2');
             },
             failure: function(id, o) {
                 Y.log('IO FAILED', 'error', 'io2');
@@ -66,7 +66,7 @@ YUI({
                 Y.log('Start IO #4', 'info', 'io4');
             },
             success: function(id, o) {
-                Y.log(sys.inspect(Y.JSON.parse(o.responseText)), 'info', 'io4');
+                Y.log(util.inspect(Y.JSON.parse(o.responseText)), 'info', 'io4');
             }
         }
     });
